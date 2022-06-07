@@ -141,7 +141,7 @@ def test_11_dead_friend_not_added(self, set_dead_friend):
                                             f'\nExpected: No friends are added'
 
 @pytest.mark.parametrize('age', [29, 31, 33])
-def test_01_young_human(self, age):''''''
+def test_01_young_human(self, age):'''
     '''description
     Pre-conditions:
     1. create 3 young humans of different age
@@ -149,6 +149,6 @@ def test_01_young_human(self, age):''''''
     1. create 29, 31, 33 years old human, using parametrize
     2. check, that he was added 1 year
     Expected result: age is increased for 1 year
-    '''logger.info(f'\nTEST START: {age}')
+    logger.info(f'\nTEST START: {age}')
     self.human.grow()
     assert self.human.age == 30, f'\nAge is not as expected\nActual: {self.human.age}\nExpected: 30'
