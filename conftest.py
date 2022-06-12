@@ -1,24 +1,24 @@
 import pytest
-import logging
 
-logger = logging.getLogger()
-logger.setLevel('INFO')
+import time
+from time import sleep
 
-from code_for_testing import Human
-
-@pytest.fixture()
-def set_human(self):
-    yield Human('Stefan', 29, 'male')
+from selenium.webdriver import Chrome, Edge, Firefox
+from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.keys import Keys
 
 @pytest.fixture()
-def set_living_friend(self):
-    logger.info(msg='\nFixture start')
-    yield Human('Francisco', 35, 'male')
-    logger.info(msg='\nFixture finished')
-
+def set_driver_chrome():
+    driver_chrome = Chrome("chromedriver.exe")
+    return driver_chrome
 
 @pytest.fixture()
-def set_dead_friend(self):
-    dead_friend = Human('Dominic', 106, 'male')
-    dead_friend.grow()
-    yield dead_friend
+def set_driver_firefox():
+    driver_firefox = firefox("geckodriver.exe")
+    return driver_firefox
+
+@pytest.fixture()
+def set_driver_edge():
+    driver_edge = edge("geckodriver.exe")
+    return driver_edge
